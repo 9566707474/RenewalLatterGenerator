@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FileSystem.cs" />
+    <Compile Include="Common\IFileSystem.cs" />
+    <Compile Include="Common\OutputMapping.cs" />
     <Compile Include="Extentions\StringExtention.cs" />
     <Compile Include="Features\DataExtractor\DataExtractor.cs" />
     <Compile Include="Features\DataExtractor\IDataExtractor.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="Infrastructure\FileHandlerResolver.cs" />
     <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
     <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />
+    <Compile Include="Infrastructure\Installers\FileSystemInstaller.cs" />
     <Compile Include="Infrastructure\WindsorConfig.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerProduct.cs" />
@@ -72,5 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\InvitationTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
