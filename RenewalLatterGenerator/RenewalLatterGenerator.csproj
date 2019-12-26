@@ -55,6 +55,7 @@
     <Compile Include="Common\FileSystem.cs" />
     <Compile Include="Common\IFileSystem.cs" />
     <Compile Include="Common\OutputMapping.cs" />
+    <Compile Include="Common\OutputTemplate.cs" />
     <Compile Include="Extentions\StringExtention.cs" />
     <Compile Include="Features\DataExtractor\DataExtractor.cs" />
     <Compile Include="Features\DataExtractor\IDataExtractor.cs" />

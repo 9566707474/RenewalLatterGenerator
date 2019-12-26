@@ -24,6 +24,8 @@
 
             var customerProducts = fileHandler.ReadFile(filePath);
 
+            OutputTemplate.Load = this.fileSystem.ReadAllText(@"C:\Loga\Loga\doc\ConsumerCodeTest\RenewalLatterGenerator\RenewalLatterGenerator\App_Data\InvitationTemplate.txt");
+
             WriteOutput(customerProducts);
 
             Console.WriteLine(customerProducts);
@@ -37,7 +39,7 @@
             {
                 var outputFile = @"C:\Test\" + item.Id + item.FirstName + ".txt";
 
-                var invitationTemplate = this.fileSystem.ReadAllText(@"C:\Loga\Loga\doc\ConsumerCodeTest\RenewalLatterGenerator\RenewalLatterGenerator\App_Data\InvitationTemplate.txt");
+                var invitationTemplate = OutputTemplate.Get;
 
                 foreach (var keyValue in OutputMapping.Columns)
                 {
