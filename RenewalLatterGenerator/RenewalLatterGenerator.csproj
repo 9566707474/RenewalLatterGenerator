@@ -62,6 +62,7 @@
     <Compile Include="Features\FileHandlers\CsvFileHandler.cs" />
     <Compile Include="Features\FileHandlers\IFileHandler.cs" />
     <Compile Include="Features\FileHandlers\TextFileHandler.cs" />
+    <Compile Include="Features\OutputFileHandler\GenerateOutputFile.cs" />
     <Compile Include="Infrastructure\FileHandlerResolver.cs" />
     <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
     <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />

@@ -1,10 +1,13 @@
 ﻿namespace RenewalLatterGenerator.Features.DataExtractor
 {
     using RenewalLatterGenerator.Common;
+    using RenewalLatterGenerator.Features.OutputFileHandler;
     using RenewalLatterGenerator.Infrastructure;
     using RenewalLatterGenerator.Models;
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class DataExtractor : IDataExtractor
     {
@@ -28,34 +31,23 @@
 
             WriteOutput(customerProducts);
 
-            Console.WriteLine(customerProducts);
-
             return customerProducts;
         }
 
         private void WriteOutput(ICollection<CustomerProduct> customerProducts)
         {
+            var generateOutputFile = new ConcurrentBag<GenerateOutputFile>();
             foreach (var item in customerProducts)
             {
-                var outputFile = @"C:\Test\" + item.Id + item.FirstName + ".txt";
-
-                var invitationTemplate = OutputTemplate.Get;
-
-                foreach (var keyValue in OutputMapping.Columns)
-                {
-                    invitationTemplate = invitationTemplate.Replace(keyValue.Key, GetPropertyValue(item, keyValue.Value).ToString());
-                }
-
-                this.fileSystem.WriteAllText(outputFile, invitationTemplate);
+                generateOutputFile.Add(new GenerateOutputFile() { CustomerProduct = item, FileSystem = fileSystem });
             }
 
-        }
+            var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = Environment.ProcessorCount };
 
-        private static object GetPropertyValue(object source, string propertyName)
-        {
-            var propertyInfo = source.GetType().GetProperty(propertyName);
-            return propertyInfo.GetValue(source, null);
+            Parallel.ForEach(generateOutputFile, parallelOptions, task =>
+            {
+                task.Start();
+            });
         }
-
     }
 }
