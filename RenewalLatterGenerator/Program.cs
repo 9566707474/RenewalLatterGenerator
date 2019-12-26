@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RenewalLatterGenerator
+﻿namespace RenewalLatterGenerator
 {
-    class Program
+    using Castle.Windsor;
+    using RenewalLatterGenerator.Features.DataExtractor;
+    using RenewalLatterGenerator.Infrastructure;
+
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var container = new WindsorContainer();
+            WindsorConfig.Install(container);
+
+            var dataExtractor = container.Resolve<IDataExtractor>();
+            var value = dataExtractor.GetCustomerProductsFromFile("Csv", @"C:\Loga\Loga\doc\ConsumerCodeTest\Customer.csv");
+
         }
     }
 }

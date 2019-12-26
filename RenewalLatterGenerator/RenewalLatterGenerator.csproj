@@ -60,6 +60,8 @@
     <Compile Include="Features\FileHandlers\TextFileHandler.cs" />
     <Compile Include="Infrastructure\FileHandlerResolver.cs" />
     <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
+    <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />
+    <Compile Include="Infrastructure\WindsorConfig.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerProduct.cs" />
     <Compile Include="Program.cs" />

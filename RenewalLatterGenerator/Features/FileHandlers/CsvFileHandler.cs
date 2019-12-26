@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
     using RenewalLatterGenerator.Models;
 
@@ -21,7 +22,7 @@
         {
             var customerProducts = new List<CustomerProduct>();
 
-            Parallel.ForEach(File.ReadLines(filePath), line =>
+            Parallel.ForEach(File.ReadLines(filePath).Skip(1), line =>
             {
                 customerProducts.Add(GetCustomerProductFromLine(line));
             });
