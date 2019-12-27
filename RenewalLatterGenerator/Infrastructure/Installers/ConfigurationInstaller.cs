@@ -7,12 +7,12 @@
     using System.Diagnostics.CodeAnalysis;
 
     [ExcludeFromCodeCoverage]
-    public class FileSystemInstaller : IWindsorInstaller
+    public class ConfigurationInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IFileSystem>()
-                .ImplementedBy<FileSystem>());
+            container.Register(Component.For<IConfigurationManagerFacade>()
+               .ImplementedBy<ConfigurationManagerFacade>().LifestyleSingleton());
         }
     }
 }

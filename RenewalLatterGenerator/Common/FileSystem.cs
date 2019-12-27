@@ -1,6 +1,8 @@
 ﻿namespace RenewalLatterGenerator.Common
 {
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     public class FileSystem: IFileSystem
     {
@@ -38,5 +40,17 @@
         {
             File.WriteAllText(filePath,content);
         }
+
+        public ICollection<string> GetFiles(string directoryPath,string pattern)
+        {
+            return Directory.GetFiles(directoryPath, pattern).ToList();
+        }
+
+        public string GetFileType(string filePath)
+        {
+            var fileInfo = new FileInfo(filePath);
+            return fileInfo.Extension.ToUpper();
+        }
+
     }
 }

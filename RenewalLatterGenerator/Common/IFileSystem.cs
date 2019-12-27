@@ -1,4 +1,6 @@
-﻿namespace RenewalLatterGenerator.Common
+﻿using System.Collections.Generic;
+
+namespace RenewalLatterGenerator.Common
 {
     public interface IFileSystem
     {
@@ -9,5 +11,9 @@
         void CreateFile(string filePath);
 
         void WriteAllText(string filePath, string content);
+
+        ICollection<string> GetFiles(string directoryPath, string pattern);
+
+        string GetFileType(string filePath);
     }
 }

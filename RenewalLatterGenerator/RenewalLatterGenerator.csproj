@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ConfigurationManagerFacade.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\FileSystem.cs" />
+    <Compile Include="Common\IConfigurationManagerFacade.cs" />
     <Compile Include="Common\IFileSystem.cs" />
     <Compile Include="Common\OutputMapping.cs" />
     <Compile Include="Common\OutputTemplate.cs" />
@@ -63,7 +65,9 @@
     <Compile Include="Features\FileHandlers\CsvFileHandler.cs" />
     <Compile Include="Features\FileHandlers\IFileHandler.cs" />
     <Compile Include="Features\FileHandlers\TextFileHandler.cs" />
+    <Compile Include="Features\IProcessEngine.cs" />
     <Compile Include="Features\OutputFileHandler\GenerateOutputFile.cs" />
+    <Compile Include="Features\ProcessEngine.cs" />
     <Compile Include="Features\Rules\AverageMonthlyPremiumRule.cs" />
     <Compile Include="Features\Rules\Payments.cs" />
     <Compile Include="Features\Rules\CreditChargeRule.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Infrastructure\FileHandlerResolver.cs" />
     <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
     <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />
+    <Compile Include="Infrastructure\Installers\ConfigurationInstaller.cs" />
     <Compile Include="Infrastructure\Installers\FileSystemInstaller.cs" />
     <Compile Include="Infrastructure\WindsorConfig.cs" />
     <Compile Include="Models\Customer.cs" />

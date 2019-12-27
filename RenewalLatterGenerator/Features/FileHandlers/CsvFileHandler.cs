@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using RenewalLatterGenerator.Common;
     using RenewalLatterGenerator.Models;
 
     public class CsvFileHandler : IFileHandler
@@ -13,7 +14,7 @@
 
         public CsvFileHandler()
         {
-            Type = "Csv";
+            Type = FileTypes.Csv;
         }
 
         public string Type { get; private set; }

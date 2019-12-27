@@ -1,6 +1,7 @@
 ﻿namespace RenewalLatterGenerator
 {
     using Castle.Windsor;
+    using RenewalLatterGenerator.Features;
     using RenewalLatterGenerator.Features.DataExtractor;
     using RenewalLatterGenerator.Infrastructure;
 
@@ -11,9 +12,8 @@
             var container = new WindsorContainer();
             WindsorConfig.Install(container);
 
-            var dataExtractor = container.Resolve<IDataExtractor>();
-            var value = dataExtractor.GetCustomerProductsFromFile("Csv", @"C:\Users\585696\Desktop\CustomerTestFile.csv");
-
+            var processEngine = container.Resolve<IProcessEngine>();
+            processEngine.Start();
         }
     }
 }
