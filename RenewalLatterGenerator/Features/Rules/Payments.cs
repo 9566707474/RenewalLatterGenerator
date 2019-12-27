@@ -7,21 +7,21 @@
     {
         public CustomerProduct CustomerProduct { get; set; }
 
-        private ICollection<IRule> _rules = new List<IRule>();
+        private ICollection<IRule> rules = new List<IRule>();
 
         public Payments(CustomerProduct customerProduct)
         {
             CustomerProduct = customerProduct;
-            _rules.Add(new CreditChargeRule());
-            _rules.Add(new TotalPremiumRule());
-            _rules.Add(new AverageMonthlyPremiumRule());
-            _rules.Add(new InitialMonthlyPaymentAmountRule());
-            _rules.Add(new OtherMonthlyPaymentsAmountRule());
+            rules.Add(new CreditChargeRule());
+            rules.Add(new TotalPremiumRule());
+            rules.Add(new AverageMonthlyPremiumRule());
+            rules.Add(new InitialMonthlyPaymentAmountRule());
+            rules.Add(new OtherMonthlyPaymentsAmountRule());
         }
 
         public void Calculate()
         {
-            foreach (var rule in _rules)
+            foreach (var rule in rules)
             {
                 CustomerProduct = rule.Apply(CustomerProduct);
             }
