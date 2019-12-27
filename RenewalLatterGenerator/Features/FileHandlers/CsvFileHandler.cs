@@ -20,12 +20,20 @@
 
         public ICollection<CustomerProduct> ReadFile(string filePath)
         {
+            int i = 0;
             var customerProducts = new List<CustomerProduct>();
 
-            Parallel.ForEach(File.ReadLines(filePath).Skip(1), line =>
+            foreach (var item in File.ReadLines(filePath))
             {
-                customerProducts.Add(GetCustomerProductFromLine(line));
-            });
+                if (i == 0)
+                {
+                    i = i + 1;
+                    continue;
+                }
+
+                customerProducts.Add(GetCustomerProductFromLine(item));
+            }
+
 
             return customerProducts;
         }

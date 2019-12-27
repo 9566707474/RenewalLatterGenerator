@@ -12,6 +12,7 @@
         /// </summary>
         public static Dictionary<string, string> Columns = new Dictionary<string, string>
     {
+        {"#CurrentDate#", "CurrentDate"},
         {"#Title#", "Title"},
         {"#FirstName#", "FirstName"},
         {"#Surname#", "Surname"},

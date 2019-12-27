@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\FileSystem.cs" />
     <Compile Include="Common\IFileSystem.cs" />
     <Compile Include="Common\OutputMapping.cs" />
@@ -63,6 +64,13 @@
     <Compile Include="Features\FileHandlers\IFileHandler.cs" />
     <Compile Include="Features\FileHandlers\TextFileHandler.cs" />
     <Compile Include="Features\OutputFileHandler\GenerateOutputFile.cs" />
+    <Compile Include="Features\Rules\AverageMonthlyPremiumRule.cs" />
+    <Compile Include="Features\Rules\Payments.cs" />
+    <Compile Include="Features\Rules\CreditChargeRule.cs" />
+    <Compile Include="Features\Rules\InitialMonthlyPaymentAmountRule.cs" />
+    <Compile Include="Features\Rules\IRule.cs" />
+    <Compile Include="Features\Rules\OtherMonthlyPaymentsAmountRule.cs" />
+    <Compile Include="Features\Rules\TotalPremiumRule.cs" />
     <Compile Include="Infrastructure\FileHandlerResolver.cs" />
     <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
     <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />

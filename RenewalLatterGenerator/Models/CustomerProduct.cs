@@ -1,5 +1,8 @@
 ﻿namespace RenewalLatterGenerator.Models
 {
+    using RenewalLatterGenerator.Common;
+    using System;
+
     /// <summary>
     /// Customer with product details
     /// </summary>
@@ -44,5 +47,10 @@
         /// Other monthly payments amount
         /// </summary>
         public double OtherMonthlyPayments { get; set; }
+
+        /// <summary>
+        /// System current date
+        /// </summary>
+        public string CurrentDate => DateTime.Now.ToString(Constants.DateFormate);
     }
 }

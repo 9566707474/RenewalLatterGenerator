@@ -12,7 +12,7 @@
             WindsorConfig.Install(container);
 
             var dataExtractor = container.Resolve<IDataExtractor>();
-            var value = dataExtractor.GetCustomerProductsFromFile("Csv", @"C:\Loga\Loga\doc\ConsumerCodeTest\Customer.csv");
+            var value = dataExtractor.GetCustomerProductsFromFile("Csv", @"C:\Users\585696\Desktop\CustomerTestFile.csv");
 
         }
     }
