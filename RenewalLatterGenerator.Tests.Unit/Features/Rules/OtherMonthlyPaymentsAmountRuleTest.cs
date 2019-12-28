@@ -31,7 +31,7 @@
         {
             var value = underTest.Apply(customerProduct);
             Assert.AreEqual(value.Id, customerProduct.Id);
-            Assert.AreEqual(value.AverageMonthlyPremium, value.AverageMonthlyPremium);
+            Assert.AreEqual(value.AverageMonthlyPremium, customerProduct.AverageMonthlyPremium);
             Assert.AreEqual(value.OtherMonthlyPayments, 10.32);
         }
 

@@ -1,5 +1,6 @@
 ﻿namespace RenewalLatterGenerator.Features.Rules
 {
+    using RenewalLatterGenerator.Exceptions;
     using RenewalLatterGenerator.Models;
 
     /// <summary>
@@ -14,6 +15,11 @@
         /// <returns>customer product</returns>
         public CustomerProduct Apply(CustomerProduct customerProduct)
         {
+            if (customerProduct?.AnnualPremium == null || customerProduct?.CreditCharge == null)
+            {
+                throw new RuleException("Customer product annual premium or credit charge not found");
+            }
+
             customerProduct.TotalPremium = customerProduct.AnnualPremium + customerProduct.CreditCharge;
             return customerProduct;
         }
