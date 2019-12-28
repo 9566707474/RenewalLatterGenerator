@@ -76,8 +76,8 @@
     <Compile Include="Features\Rules\IRule.cs" />
     <Compile Include="Features\Rules\OtherMonthlyPaymentsAmountRule.cs" />
     <Compile Include="Features\Rules\TotalPremiumRule.cs" />
-    <Compile Include="Infrastructure\FileHandlerResolver.cs" />
-    <Compile Include="Infrastructure\IFileHandlerResolver.cs" />
+    <Compile Include="Features\FileHandlers\FileHandlerResolver.cs" />
+    <Compile Include="Features\FileHandlers\IFileHandlerResolver.cs" />
     <Compile Include="Infrastructure\Installers\ApplicationInstaller.cs" />
     <Compile Include="Infrastructure\Installers\ConfigurationInstaller.cs" />
     <Compile Include="Infrastructure\Installers\FileSystemInstaller.cs" />

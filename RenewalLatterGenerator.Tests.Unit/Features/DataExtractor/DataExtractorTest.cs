@@ -4,7 +4,6 @@
     using Moq;
     using RenewalLatterGenerator.Features.DataExtractor;
     using RenewalLatterGenerator.Features.FileHandlers;
-    using RenewalLatterGenerator.Infrastructure;
     using RenewalLatterGenerator.Models;
     using RenewalLatterGenerator.Tests.Unit.Builders.Models;
     using System.Collections.Generic;

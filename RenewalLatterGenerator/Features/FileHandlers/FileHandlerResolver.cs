@@ -1,12 +1,10 @@
-﻿namespace RenewalLatterGenerator.Infrastructure
+﻿namespace RenewalLatterGenerator.Features.FileHandlers
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using RenewalLatterGenerator.Features.FileHandlers;
-
-    internal class FileHandlerResolver : IFileHandlerResolver
+    public class FileHandlerResolver : IFileHandlerResolver
     {
         private readonly IEnumerable<IFileHandler> fileHandler;
 

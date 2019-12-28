@@ -65,6 +65,7 @@
     <Compile Include="Builders\Models\CustomerModelBuilder.cs" />
     <Compile Include="Builders\Models\CustomerProductModelBuilder.cs" />
     <Compile Include="Features\DataExtractor\DataExtractorTest.cs" />
+    <Compile Include="Features\FileHandlers\FileHandlerResolverTest.cs" />
     <Compile Include="Features\Rules\AverageMonthlyPremiumRuleTest.cs" />
     <Compile Include="Features\Rules\CreditChargeRuleTest.cs" />
     <Compile Include="Features\Rules\InitialMonthlyPaymentAmountRuleTest.cs" />

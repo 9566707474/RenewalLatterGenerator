@@ -1,6 +1,6 @@
 ﻿namespace RenewalLatterGenerator.Features.DataExtractor
 {
-    using RenewalLatterGenerator.Infrastructure;
+    using RenewalLatterGenerator.Features.FileHandlers;
     using RenewalLatterGenerator.Models;
     using System.Collections.Generic;
 

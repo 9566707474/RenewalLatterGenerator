@@ -1,7 +1,5 @@
-﻿namespace RenewalLatterGenerator.Infrastructure
+﻿namespace RenewalLatterGenerator.Features.FileHandlers
 {
-    using RenewalLatterGenerator.Features.FileHandlers;
-
     public interface IFileHandlerResolver
     {
         IFileHandler Resolve(string fileHandlerType);
