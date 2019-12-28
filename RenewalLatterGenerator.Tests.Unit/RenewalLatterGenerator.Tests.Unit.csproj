@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Builders\Models\CustomerModelBuilder.cs" />
     <Compile Include="Builders\Models\CustomerProductModelBuilder.cs" />
+    <Compile Include="Features\Rules\AverageMonthlyPremiumRuleTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
