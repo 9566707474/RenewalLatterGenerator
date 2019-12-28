@@ -70,7 +70,7 @@
             var generateOutputFile = new ConcurrentBag<GenerateOutputFile>();
             foreach (var item in customerProducts)
             {
-                generateOutputFile.Add(new GenerateOutputFile() { CustomerProduct = item, FileSystem = fileSystem });
+                generateOutputFile.Add(new GenerateOutputFile() { CustomerProduct = item, FileSystem = fileSystem, FilePath = ConfigurationManagerFacade.OutputFileLocation });
             }
 
             var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = Environment.ProcessorCount };

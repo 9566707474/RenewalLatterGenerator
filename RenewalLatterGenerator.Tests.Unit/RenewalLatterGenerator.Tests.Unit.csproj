@@ -68,6 +68,7 @@
     <Compile Include="Features\FileHandlers\CsvFileHandlerTest.cs" />
     <Compile Include="Features\FileHandlers\FileHandlerResolverTest.cs" />
     <Compile Include="Features\FileHandlers\TextFileHandlerTest.cs" />
+    <Compile Include="Features\OutputFileHandler\GenerateOutputFileTest.cs" />
     <Compile Include="Features\Rules\AverageMonthlyPremiumRuleTest.cs" />
     <Compile Include="Features\Rules\CreditChargeRuleTest.cs" />
     <Compile Include="Features\Rules\InitialMonthlyPaymentAmountRuleTest.cs" />
