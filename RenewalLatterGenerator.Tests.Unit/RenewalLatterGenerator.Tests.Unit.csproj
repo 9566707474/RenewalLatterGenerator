@@ -49,13 +49,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builders\CustomerModelBuilder.cs" />
-    <Compile Include="Builders\CustomerProductModelBuilder.cs" />
+    <Compile Include="Builders\Models\CustomerModelBuilder.cs" />
+    <Compile Include="Builders\Models\CustomerProductModelBuilder.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RenewalLatterGenerator\RenewalLatterGenerator.csproj">
+      <Project>{ae10ddf6-dcb9-40ef-88fb-03b1d2f6606b}</Project>
+      <Name>RenewalLatterGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
