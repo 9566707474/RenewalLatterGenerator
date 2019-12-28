@@ -59,6 +59,7 @@
     <Compile Include="Common\IFileSystem.cs" />
     <Compile Include="Common\OutputMapping.cs" />
     <Compile Include="Common\OutputTemplate.cs" />
+    <Compile Include="Exceptions\FileNotProcessedException.cs" />
     <Compile Include="Exceptions\RuleException.cs" />
     <Compile Include="Extentions\StringExtention.cs" />
     <Compile Include="Features\DataExtractor\DataExtractor.cs" />

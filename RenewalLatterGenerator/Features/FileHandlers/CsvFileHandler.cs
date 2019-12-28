@@ -3,11 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Threading.Tasks;
     using RenewalLatterGenerator.Common;
+    using RenewalLatterGenerator.Exceptions;
     using RenewalLatterGenerator.Models;
 
+    /// <summary>
+    /// Csv file parser class
+    /// </summary>
     public class CsvFileHandler : IFileHandler
     {
         private const char Delimiter = ',';
@@ -19,26 +21,43 @@
 
         public string Type { get; private set; }
 
+        /// <summary>
+        /// Read the file and assign the data to CustomerProduct objects
+        /// </summary>
+        /// <param name="filePath">Input file path</param>
+        /// <returns>Collection of CustomerProduct</returns>
         public ICollection<CustomerProduct> ReadFile(string filePath)
         {
-            int i = 0;
-            var customerProducts = new List<CustomerProduct>();
-
-            foreach (var item in File.ReadLines(filePath))
+            try
             {
-                if (i == 0)
+                int i = 0;
+                var customerProducts = new List<CustomerProduct>();
+
+                foreach (var item in File.ReadLines(filePath))
                 {
-                    i = i + 1;
-                    continue;
+                    if (i == 0)
+                    {
+                        i = i + 1;
+                        continue;
+                    }
+
+                    customerProducts.Add(GetCustomerProductFromLine(item));
                 }
 
-                customerProducts.Add(GetCustomerProductFromLine(item));
+                return customerProducts;
             }
-
-
-            return customerProducts;
+            catch (Exception ex)
+            {
+                throw new FileNotProcessedException(ex.Message);
+            }
+           
         }
 
+        /// <summary>
+        /// Get the customer products from each line
+        /// </summary>
+        /// <param name="line">Line from text file</param>
+        /// <returns>CustomerProduct object</returns>
         private CustomerProduct GetCustomerProductFromLine(string line)
         {
             var attributes = line.Split(Delimiter);
