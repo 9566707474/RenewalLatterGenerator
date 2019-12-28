@@ -11,6 +11,8 @@
         public static string InputFileLocation = "InputFileLocation";
 
         public static string InputFilePattern = "InputFilePattern";
+
+        public static string OutputTemplatePath = @"\App_Data\InvitationTemplate.txt";
     }
 
     public static class FileTypes

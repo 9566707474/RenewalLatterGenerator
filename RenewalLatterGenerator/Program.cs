@@ -2,7 +2,6 @@
 {
     using Castle.Windsor;
     using RenewalLatterGenerator.Features;
-    using RenewalLatterGenerator.Features.DataExtractor;
     using RenewalLatterGenerator.Infrastructure;
 
     public class Program

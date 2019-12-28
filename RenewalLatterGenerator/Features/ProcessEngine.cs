@@ -8,7 +8,9 @@
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
     using System.Threading.Tasks;
 
     public class ProcessEngine : IProcessEngine
@@ -35,7 +37,9 @@
                 var fileType = fileSystem.GetFileType(item);
                 var customerProducts = dataExtractor.GetCustomerProductsFromFile(fileType, item);
 
-                OutputTemplate.Load = this.fileSystem.ReadAllText(@"C:\Loga\Loga\doc\ConsumerCodeTest\RenewalLatterGenerator\RenewalLatterGenerator\App_Data\InvitationTemplate.txt");
+                var templatePath = GetExecutionPath() + Constants.OutputTemplatePath;
+
+                OutputTemplate.Load = this.fileSystem.ReadAllText(templatePath);
 
                 var customerProductList = ApplyPaymentCalculationRules(customerProducts);
 
@@ -76,5 +80,11 @@
                 task.Start();
             });
         }
+
+        private static string GetExecutionPath()
+        {
+            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        }
+
     }
 }
