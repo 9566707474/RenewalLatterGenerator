@@ -4,8 +4,16 @@
     using RenewalLatterGenerator.Models;
     using System;
 
+    /// <summary>
+    /// Used to apply InitialMonthlyPaymentAmountRule
+    /// </summary>
     public class InitialMonthlyPaymentAmountRule : IRule
     {
+        /// <summary>
+        /// Apply Initial Monthly Payment Amount Rule
+        /// </summary>
+        /// <param name="customerProduct">customer product</param>
+        /// <returns>customer product</returns>
         public CustomerProduct Apply(CustomerProduct customerProduct)
         {
             if (customerProduct?.AverageMonthlyPremium == null)

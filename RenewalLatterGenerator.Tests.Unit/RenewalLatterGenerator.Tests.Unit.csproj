@@ -54,6 +54,7 @@
     <Compile Include="Features\Rules\AverageMonthlyPremiumRuleTest.cs" />
     <Compile Include="Features\Rules\CreditChargeRuleTest.cs" />
     <Compile Include="Features\Rules\InitialMonthlyPaymentAmountRuleTest.cs" />
+    <Compile Include="Features\Rules\OtherMonthlyPaymentsAmountRuleTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
