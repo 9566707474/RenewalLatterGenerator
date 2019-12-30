@@ -1,7 +1,9 @@
 ﻿namespace RenewalLatterGenerator.Features.OutputFileHandler
 {
     using RenewalLatterGenerator.Common;
+    using RenewalLatterGenerator.Exceptions;
     using RenewalLatterGenerator.Models;
+    using System;
 
     /// <summary>
     /// Used to Generate invitation letter
@@ -19,23 +21,30 @@
         /// </summary>
         public void Start()
         {
-            if (!FilePath.EndsWith("\\"))
+            try
             {
-                FilePath = FilePath + "\\";
+                if (!FilePath.EndsWith("\\"))
+                {
+                    FilePath = FilePath + "\\";
+                }
+
+                FilePath = FilePath + CustomerProduct.Id + "_" + CustomerProduct.FirstName + FileTypes.Text;
+
+                var invitationTemplate = OutputTemplate.Get;
+
+                foreach (var keyValue in OutputMapping.Columns)
+                {
+                    invitationTemplate = invitationTemplate.Replace(keyValue.Key, GetPropertyValue(CustomerProduct, keyValue.Value).ToString());
+                }
+
+                if (!FileSystem.FileExists(FilePath))
+                {
+                    FileSystem.WriteAllText(FilePath, invitationTemplate);
+                }
             }
-
-            FilePath = FilePath + CustomerProduct.Id + "_" + CustomerProduct.FirstName + FileTypes.Text;
-
-            var invitationTemplate = OutputTemplate.Get;
-
-            foreach (var keyValue in OutputMapping.Columns)
+            catch (Exception ex)
             {
-                invitationTemplate = invitationTemplate.Replace(keyValue.Key, GetPropertyValue(CustomerProduct, keyValue.Value).ToString());
-            }
-
-            if (!FileSystem.FileExists(FilePath))
-            {
-                FileSystem.WriteAllText(FilePath, invitationTemplate);
+                throw new InvitationNotGeneratedException(ex.Message);
             }
         }
 

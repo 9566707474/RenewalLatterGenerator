@@ -60,6 +60,7 @@
     <Compile Include="Common\OutputMapping.cs" />
     <Compile Include="Common\OutputTemplate.cs" />
     <Compile Include="Exceptions\FileNotProcessedException.cs" />
+    <Compile Include="Exceptions\InvitationNotGeneratedException.cs" />
     <Compile Include="Exceptions\RuleException.cs" />
     <Compile Include="Extentions\StringExtention.cs" />
     <Compile Include="Features\DataExtractor\DataExtractor.cs" />
@@ -90,8 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
