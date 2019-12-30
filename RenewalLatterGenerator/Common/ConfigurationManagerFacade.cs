@@ -4,7 +4,7 @@
     using System.Collections.Specialized;
     using System.Configuration;
 
-    internal class ConfigurationManagerFacade : IConfigurationManagerFacade
+    public class ConfigurationManagerFacade : IConfigurationManagerFacade
     {
 
         private readonly NameValueCollection settings;
