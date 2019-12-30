@@ -3,7 +3,9 @@
     using Castle.Windsor;
     using RenewalLatterGenerator.Features;
     using RenewalLatterGenerator.Infrastructure;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args)

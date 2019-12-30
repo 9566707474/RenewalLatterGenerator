@@ -3,6 +3,9 @@
     using RenewalLatterGenerator.Models;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Class to calculate the payment amount for each customer product data
+    /// </summary>
     public class Payments
     {
         public CustomerProduct CustomerProduct { get; set; }
@@ -19,6 +22,9 @@
             rules.Add(new OtherMonthlyPaymentsAmountRule());
         }
 
+        /// <summary>
+        /// Calculate paymount amounts by applying rules
+        /// </summary>
         public void Calculate()
         {
             foreach (var rule in rules)

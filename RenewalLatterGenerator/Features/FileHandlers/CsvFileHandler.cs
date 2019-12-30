@@ -75,8 +75,10 @@
                     AnnualPremium = Convert.ToDouble(attributes[6]),
                 };
             }
-
-            return null;
+            else
+            {
+                throw new FileNotProcessedException("Incorrect collumns found");
+            }
         }
     }
 }

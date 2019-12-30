@@ -1,5 +1,6 @@
 ﻿namespace RenewalLatterGenerator.Features.Rules
 {
+    using RenewalLatterGenerator.Common;
     using RenewalLatterGenerator.Exceptions;
     using RenewalLatterGenerator.Models;
     using System;
@@ -18,7 +19,7 @@
         {
             if (customerProduct?.AverageMonthlyPremium == null)
             {
-                throw new RuleException("Customer product average monthly premium not found");
+                throw new RuleException(ErrorMessages.AverageMonthlyPremium);
             }
 
             customerProduct.OtherMonthlyPayments = Math.Round(customerProduct.AverageMonthlyPremium, 2);

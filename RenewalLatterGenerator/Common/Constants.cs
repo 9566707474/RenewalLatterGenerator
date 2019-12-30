@@ -21,4 +21,15 @@
 
         public static string Text = ".TXT";
     }
+
+    public static class ErrorMessages
+    {
+        public static string TotalPremium = "Customer product total premium not found";
+
+        public static string AnnualPremium = "Customer product annual premium not found";
+
+        public static string AverageMonthlyPremium = "Customer product average monthly premium not found";
+
+        public static string AnnualPremiumOrCreditCharge = "Customer product annual premium or credit charge not found";
+    }
 }
