@@ -13,6 +13,13 @@
     using System.Reflection;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Process engine heart of the application.
+    /// Match the files based on pattern confiogured in config file.
+    /// Extract the customer products from the files.
+    /// Calculate the payment amounts by applying multiple rules.
+    /// Generate the invitation latter for each customer product respectivly. 
+    /// </summary>
     public class ProcessEngine : IProcessEngine
     {
         private readonly IFileSystem fileSystem;
@@ -28,6 +35,9 @@
             this.dataExtractor = dataExtractor;
         }
 
+        /// <summary>
+        /// Start to generate the invitation letter
+        /// </summary>
         public void Start()
         {
             var files = fileSystem.GetFiles(ConfigurationManagerFacade.InputFileLocation, ConfigurationManagerFacade.InputFilePattern);
@@ -47,6 +57,11 @@
             }
         }
 
+        /// <summary>
+        /// Applying payment calculation rules by using parallel task
+        /// </summary>
+        /// <param name="customerProducts"> collection of customer product</param>
+        /// <returns></returns>
         private ICollection<CustomerProduct> ApplyPaymentCalculationRules(ICollection<CustomerProduct> customerProducts)
         {
             var payments = new ConcurrentBag<Payments>();
@@ -65,6 +80,10 @@
             return payments.Select(p => p.CustomerProduct).ToList();
         }
 
+        /// <summary>
+        /// Generate the output for each customer products
+        /// </summary>
+        /// <param name="customerProducts">collectuion of customer products</param>
         private void WriteOutput(ICollection<CustomerProduct> customerProducts)
         {
             var generateOutputFile = new ConcurrentBag<GenerateOutputFile>();
@@ -81,6 +100,10 @@
             });
         }
 
+        /// <summary>
+        /// Get the execution path to load output template
+        /// </summary>
+        /// <returns></returns>
         private static string GetExecutionPath()
         {
             return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
